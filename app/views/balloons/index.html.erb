@@ -1,0 +1,9 @@
+<div class="container" style="padding-top: 60px;">
+    <h1><%= @title %></h1>
+    <p><%= @content %></p> 
+    <div class="well">
+        <% @balloons.each do | balloon | %>
+            <%= link_to balloon.title, balloon_path(balloon) %><br>
+        <% end %>
+    </div>
+</div>

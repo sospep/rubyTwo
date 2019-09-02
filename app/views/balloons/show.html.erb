@@ -1,0 +1,14 @@
+<div class="container" style="padding-top: 60px;">
+    <h1><%= @title%></h1> 
+    <p><%= @content%></p>
+    <h2><%= @balloon.title%></h2>
+    <p><%= @balloon.body%></p>
+    <hr>
+    
+    <%= link_to "Edit", edit_balloon_path(@balloon), :class => 'btn btn-primary' %>
+    <%= link_to "Delete", balloon_path(@balloon), method: :delete, data:{confirm: "Are you sure you want to permanently delete this record?"}, :class => 'btn btn-secondary' %>
+    <%= render 'comments/comments' %>
+    <%= render 'comments/form' %> 
+
+    </div>
+

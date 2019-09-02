@@ -1,0 +1,9 @@
+<hr>
+<h3> Comments </h3>
+
+    <% @balloon.comments.each do | comment | %>
+        <strong><%= comment.username%></strong> <br>
+        <p><%= comment.body %></p>
+        <%= link_to '[x]', [comment.balloon, comment], method: :delete, data:{confirm: 'Are you sure?'} %>
+        <br>
+    <% end %>
