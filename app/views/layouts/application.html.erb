@@ -23,13 +23,13 @@
         <a class="nav-link" <%=link_to "Home", home_path %> <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" <%=link_to "About", about_path %></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" <%=link_to "Create Balloon", new_balloon_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%=link_to "Counts", counts_path %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" <%=link_to "About", about_path %></a>
       </li>
     </ul>
 
@@ -44,7 +44,6 @@
  <%= yield %>
  
   
-  <%= javascript_include_tag 'https://code.jquery.com/jquery-3.3.1.slim.min.js' %>
   <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' %>
   <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' %>
   </body>

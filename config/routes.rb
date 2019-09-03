@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about', as:'about'
   get 'show' => 'balloons#show'
   get 'new' => 'balloons#new'
+  get 'counts' => 'counts#index'
   resources :balloons do 
     resources :comments
   end
+  resources :counts
 end
