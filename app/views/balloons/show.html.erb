@@ -6,7 +6,10 @@
     <hr>
     
     <%= link_to "Edit", edit_balloon_path(@balloon), :class => 'btn btn-primary' %>
-    <%= link_to "Delete", balloon_path(@balloon), method: :delete, data:{confirm: "Are you sure you want to permanently delete this record?"}, :class => 'btn btn-secondary' %>
+
+        
+<%= link_to "Delete", balloon_path(@balloon), method: :delete, :class => 'btn btn-danger'%>
+
     <%= render 'comments/comments' %>
     <%= render 'comments/form' %> 
 

@@ -1,0 +1,11 @@
+# ERB.new(File.read("./documents.xml.erb"), 0, '>').result(binding) 
+
+<xml>
+<balloons codeA='101' status_code='ebutuoy'>
+    <balloon_counts>
+    <% @countBalloons.each do | balloon | %>
+        <count><%= balloon %></count>
+    <%end%>
+    </balloon_counts>
+</balloons>
+</xml>
