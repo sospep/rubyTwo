@@ -56,5 +56,4 @@ class BalloonsController < ApplicationController
         redirect_to balloons_path
     end 
 
-
 end

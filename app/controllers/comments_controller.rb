@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
         @comment  = @balloon.comments.find(params[:id])
         @comment.destroy
         # gotcha here with post referring VS post
-        # redirect_to balloon_path(@balloon)
+        redirect_to balloon_path(@balloon)
         # redirect_to '../views/balloons/show/'+balloon.id
     end
 
