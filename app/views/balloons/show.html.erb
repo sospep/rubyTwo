@@ -21,7 +21,7 @@
   modify path as 
   -->
 
-  <%= link_to 'Destroy', balloon_path(@balloon), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Delete', balloon_path(@balloon), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
 
 
     <%= render 'comments/comments' %>
