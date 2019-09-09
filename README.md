@@ -1,38 +1,45 @@
 # README
+========
 
 RubyOne - Is a basic web application with CRUD functionaly built using the Ruby language with the Rails framework. Use it as a template to jump start your web application development project. 
 
+This application was developed using ...
 
-This application was developed using
+Ruby version
+------------
+* v 2.3.3p222
 
-* Ruby version
+Rails version 
+-------------
+* v 5.13
 
-v 2.3.3p222
+System dependencies
+-------------------
+* list gems required or ???
 
-* Rails version 
+Configuration
+-------------
+* [] add instructions
+* [] add note re sqlite3 gem version on windows platforms
+* [] add note re coffee-script-source gem version on windows platforms
 
-v 5.13
+Database Creation
+-----------------
+* [] add instructions 
 
-* System dependencies
+Database initialization
+-----------------------
+* [] add instructions 
 
-* Configuration
+How to run the test suite
+-------------------------
+* [] add instructions 
 
-* Database creation
+Services (job queues, cache servers, search engines, etc.)
+----------------------------------------------------------
+* [] add instructions 
 
-[] add instructions 
-
-* Database initialization
-
-[] add instructions 
-
-* How to run the test suite
-
-[] add instructions 
-
-* Services (job queues, cache servers, search engines, etc.)
-
-[] add instructions 
-
-* Deployment instructions
-
+Deployment instructions
+------------
+* [] add instructions 
 * ...
