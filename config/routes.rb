@@ -5,8 +5,16 @@ Rails.application.routes.draw do
   get 'show' => 'balloons#show'
   get 'new' => 'balloons#new'
   get 'counts' => 'counts#index'
+  
   resources :balloons do 
     resources :comments
   end
   resources :counts
+
+  namespace 'api' do
+    namespace 'v1' do
+      resources :balloons
+    end
+  end
+
 end
