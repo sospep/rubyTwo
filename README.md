@@ -3,12 +3,15 @@
 --> 
 
 <p align="center">
-  <a href="https://github.com/trimstray/the-book-of-secret-knowledge">
+  <a href="https://github.com/sospep/rubyOne">
+  <!--
     <img src="https://github.com/trimstray/the-book-of-secret-knowledge/blob/master/static/img/the-book-of-secret-knowledge-preview.png" alt="Master">
+    --> 
+    <img src="https://github.com/sospep/rubyOne/blob/master/static/img/balloons.jpg" alt="Master">
   </a>
 </p>
 
-<p align="center">"<i>Knowledge is powerful, be careful how you use it!</i>"</p>
+<p align="center">"<i>Balloons are addictive, be careful how you use them!</i>"</p>
 
 <h4 align="center"> RubyOne - Is a basic web application with CRUD functionaly built using the Ruby language with the Rails framework. Use it as a template to jump start your web application development project. </h4>
 
@@ -25,8 +28,8 @@
 
 <div align="center">
   <sub>Created by
-  <a href="https://twitter.com/trimstray">trimstray</a> and
-  <a href="https://github.com/trimstray/the-book-of-secret-knowledge/graphs/contributors">contributors</a>
+  <a href="https://twitter.com/sospepTime">sospep</a> and
+  <a href="https://github.com/sospep/rubyOne/graphs/contributors">contributors</a>
 </div>
 
 <br>
@@ -47,13 +50,12 @@ System dependencies
 
 Configuration
 -------------
-* [] add instructions
 * [] add note re sqlite3 gem version on windows platforms
 * [] add note re coffee-script-source gem version on windows platforms
 
 Database Creation
 -----------------
-* [] add instructions 
+* [] run rails db:migrate
 
 Database initialization
 -----------------------
