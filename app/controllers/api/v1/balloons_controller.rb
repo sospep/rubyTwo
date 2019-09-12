@@ -8,10 +8,18 @@ module Api
             render json: {status: 'SUCCESS', message:'Loaded balloons', data:@balloons},status: :ok
         end
 
-        # return a single balloon by it's unique id feild
+        # return a single balloon by it's unique id feild, includes error check for non existant balloon ids
         def show
-            balloon = Balloon.find(params[:id])
-            render json: {status: 'SUCCESS', message:'Loaded balloon', data:balloon},status: :ok
+            begin
+                balloon = Balloon.find(params[:id])
+            rescue ActiveRecord::RecordNotFound => e
+                balloon = nil
+            end
+            if balloon == nil
+                render json: {status: 'ERROR', message:'That Balloon doesnt exist', data:"@Balloon.errors"},status: :unprocessable_entity
+            else 
+                render json: {status: 'SUCCESS', message:'Loaded balloon', data:balloon},status: :ok
+            end
         end 
 
         # add a new balloon record via a json post
@@ -25,23 +33,34 @@ module Api
             end
         end
         
-        # delete a balloon record via the api
+        # delete a balloon record via the api, includes error check for non existant balloon ids
         def destroy
-            
-            balloon = Balloon.find(params[:id])
-            balloon.destroy
-            render json: {status: 'SUCCESS', message:'Deleted balloon', data:balloon},status: :ok
+            begin
+                balloon = Balloon.find(params[:id])
+            rescue ActiveRecord::RecordNotFound => e
+                balloon = nil
+            end
+            if balloon == nil
+                render json: {status: 'ERROR', message:'Balloon doesnt exist', data:"No Balloon with this id Exists"},status: :ok
+            else 
+                balloon.destroy
+                render json: {status: 'SUCCESS', message:'Deleted balloon', data:balloon},status: :ok
+            end
         end
         
-        # update a balloon record via the api endpoint 
+        # update a balloon record via the api endpoint, includes error check for non existant balloon ids
         def update
-            balloon = Balloon.find(params[:id])           
-            if balloon.update_attributes(balloon_params)
+            begin
+                balloon = Balloon.find(params[:id])
+            rescue ActiveRecord::RecordNotFound => e
+                balloon = nil
+            end
+            
+            if balloon != nil && balloon.update_attributes(balloon_params) 
                 render json: {status: 'SUCCESS', message:'Updated balloon', data:balloon},status: :ok
             else
-                render json: {status: 'ERROR', message:'Balloon not updated', data:balloon.errors},status: :unprocessable_entity
+                render json: {status: 'ERROR', message:'Balloon not updated', data:"balloon.error - balloon id doesnt exist"},status: :unprocessable_entity
             end
-
         end
 
         private
