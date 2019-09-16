@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class CountsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  # TEST - counts xml page
+  test "should get page counts" do
+    get counts_url
+    assert_response :success
+  end
 end

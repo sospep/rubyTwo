@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'show' => 'balloons#show'
   get 'new' => 'balloons#new'
   get 'counts' => 'counts#index'
+  get 'edit' => 'balloons#edit'
+  post 'balloon_new' =>'balloons#new'
   
   resources :balloons do 
     resources :comments
