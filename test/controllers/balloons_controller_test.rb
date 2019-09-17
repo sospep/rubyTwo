@@ -36,34 +36,7 @@ class BalloonsControllerTest < ActionDispatch::IntegrationTest
 
   # TEST 
   test "should get page new balloon" do
-    # call the login process defined in test_helper.rb
-    # http_login
-    # sign_in_as(:username'don', :password'don')
-    # @userDon = User.new('don','don')
-    
-    # sign_in_as(@userDon)
-    # because new requires basic auth and we have provided none
-    # TRY= 
-    # paramsPass = { username:'don', password:'don'}
-    paramsPass = { name:'don', password:'don'}
-    
-    # TRY=
-    # get new_url, params: paramsPass
-    # FAILURE= access denied
-    
-    # TRY=
-    # post new_url, params: paramsPass
-    # ERROR - no POST new_url 
-    # post '/new', params: paramsPass 
-    # ERROR = no route matches
-    # post '/balloons#new', params: paramsPass
-    # FAILURE= access denied
-    
-    # TRY=  defined route for post request in routes
-    post balloon_new_url, params: paramsPass
-    # FAILURE= access denied 
-
-    # assert_response :missing
+    post balloon_new_url, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
     assert_response :success
   end
 
@@ -71,6 +44,12 @@ class BalloonsControllerTest < ActionDispatch::IntegrationTest
   test "should not get page edit balloons" do
     get edit_url
     assert_response(401)
+  end
+
+  # TEST - access edit page with authorization
+  test "should get page edit balloons" do
+    post edit_balloon_url, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
+    assert_response :success
   end
 
   # TEST api endpoint balloons all
