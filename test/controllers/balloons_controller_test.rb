@@ -1,23 +1,28 @@
 require 'test_helper'
 
 class BalloonsControllerTest < ActionDispatch::IntegrationTest
+
+  setup do
+    # @list = lists(:one)
+    @balloon = balloons(:one)
+  end
+
   # TEST - 
   test "should get page home" do
     get home_url
     assert_response :success
   end
 
-  # TEST - 
+  # TEST - show balloon - balloon/1
   test "should get page show balloon" do
-    # this test errors, although it correctly passes id = 6 and there is currently a balloon with id of 6 in db
-    # @balloon = Balloon.find(params[:id])
-    paramsPass = { id: '4' }
-    # params = { id: '/6' }
-    # params = {'6' }
-    # params = '/6' 
-    # note format used, from rSpec cheat sheet
-    get show_url, params: paramsPass
-    # get show_url, params: balloon_id "4"
+    # using fixtures (balloons.yml) 
+    # get show_url, params: @balloon.id
+    # PASS BUT 
+    # get '/balloons#show/1' 
+
+    # PASS
+    @paramsPass = { id:1}
+    get show_url, params: @paramsPass
     assert_response :success
   end
 
@@ -39,7 +44,8 @@ class BalloonsControllerTest < ActionDispatch::IntegrationTest
     # sign_in_as(@userDon)
     # because new requires basic auth and we have provided none
     # TRY= 
-    paramsPass = { username:'don', password:'don'}
+    # paramsPass = { username:'don', password:'don'}
+    paramsPass = { name:'don', password:'don'}
     
     # TRY=
     # get new_url, params: paramsPass
