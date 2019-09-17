@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'new' => 'balloons#new'
   get 'counts' => 'counts#index'
   get 'edit' => 'balloons#edit'
+  # added for tests
   post 'balloon_new' =>'balloons#new'
+  post 'balloon_edit' =>'balloons#edit'
   
   resources :balloons do 
     resources :comments

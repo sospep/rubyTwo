@@ -2953,3 +2953,596 @@ Processing by Api::V1::CommentsController#index as HTML
   [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY created_at DESC[0m
 Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 1.0ms)
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-17 16:19:14.130842', '2019-09-17 16:19:14.130842')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-17 16:19:14.130842', '2019-09-17 16:19:14.130842')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:19:14.134794', '2019-09-17 16:19:14.134794', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:19:14.134794', '2019-09-17 16:19:14.134794', 298486374, 298486374)[0m
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_API_balloons_json
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/balloons" for 127.0.0.1 at 2019-09-17 09:19:15 -0700
+Processing by Api::V1::BalloonsController#index as HTML
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons" ORDER BY created_at DESC[0m
+Completed 200 OK in 0ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_new_balloon
+--------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_new" for 127.0.0.1 at 2019-09-17 09:19:15 -0700
+Processing by BalloonsController#new as HTML
+  Rendering balloons/new.html.erb within layouts/application
+  Rendered balloons/new.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 627ms (Views: 608.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+BalloonsControllerTest: test_should_get_page_home
+-------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-09-17 09:19:15 -0700
+Processing by BalloonsController#index as HTML
+  Rendering balloons/index.html.erb within layouts/application
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons"[0m
+  Rendered balloons/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 25ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_new_balloon
+------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/new" for 127.0.0.1 at 2019-09-17 09:19:15 -0700
+Processing by BalloonsController#new as HTML
+Filter chain halted as #<Proc:0x44e27e0@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_show_balloon
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/show?id=1" for 127.0.0.1 at 2019-09-17 09:19:15 -0700
+Processing by BalloonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."balloon_id" = ?[0m  [["balloon_id", 1]]
+  Rendered comments/_comments.html.erb (40.7ms)
+  Rendered comments/_form.html.erb (31.2ms)
+  Rendered balloons/show.html.erb within layouts/application (115.5ms)
+Completed 200 OK in 143ms (Views: 124.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_edit_balloons
+----------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_edit_balloons
+--------------------------------------------------------------
+  [1m[36mBalloon Load (1.4ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/edit" for 127.0.0.1 at 2019-09-17 09:19:16 -0700
+Processing by BalloonsController#edit as HTML
+Filter chain halted as #<Proc:0x44e27e0@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+CommentsControllerTest: test_should_get_API_commments_json
+----------------------------------------------------------
+Started GET "/api/v1/comments" for 127.0.0.1 at 2019-09-17 09:19:16 -0700
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY created_at DESC[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+PagesControllerTest: test_should_get_page_about
+-----------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2019-09-17 09:19:16 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 49ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+CountsControllerTest: test_should_get_page_counts
+-------------------------------------------------
+Started GET "/counts" for 127.0.0.1 at 2019-09-17 09:19:16 -0700
+Processing by CountsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mselect DATE(created_at) as created, count(id) FROM balloons GROUP BY created;[0m
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-17 16:30:56.383565', '2019-09-17 16:30:56.383565')[0m
+  [1m[36mFixture Insert (15.6ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-17 16:30:56.383565', '2019-09-17 16:30:56.383565')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:30:56.399121', '2019-09-17 16:30:56.399121', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:30:56.399121', '2019-09-17 16:30:56.399121', 298486374, 298486374)[0m
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_new_balloon
+--------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_new" for 127.0.0.1 at 2019-09-17 09:30:56 -0700
+Processing by BalloonsController#new as HTML
+  Rendering balloons/new.html.erb within layouts/application
+  Rendered balloons/new.html.erb within layouts/application (31.3ms)
+Completed 200 OK in 234ms (Views: 192.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_show_balloon
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/show?id=1" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by BalloonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."balloon_id" = ?[0m  [["balloon_id", 1]]
+  Rendered comments/_comments.html.erb (21.9ms)
+  Rendered comments/_form.html.erb (18.8ms)
+  Rendered balloons/show.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 96ms (Views: 77.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_API_balloons_json
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/balloons" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by Api::V1::BalloonsController#index as HTML
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons" ORDER BY created_at DESC[0m
+Completed 200 OK in 0ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+BalloonsControllerTest: test_should_get_page_home
+-------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by BalloonsController#index as HTML
+  Rendering balloons/index.html.erb within layouts/application
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons"[0m
+  Rendered balloons/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 16ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_edit_balloons
+--------------------------------------------------------------
+  [1m[36mBalloon Load (1.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/edit" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by BalloonsController#edit as HTML
+Filter chain halted as #<Proc:0x4642ce0@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_new_balloon
+------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/new" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by BalloonsController#new as HTML
+Filter chain halted as #<Proc:0x4642ce0@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_edit_balloons
+----------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+CommentsControllerTest: test_should_get_API_commments_json
+----------------------------------------------------------
+Started GET "/api/v1/comments" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY created_at DESC[0m
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+CountsControllerTest: test_should_get_page_counts
+-------------------------------------------------
+Started GET "/counts" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by CountsController#index as HTML
+  [1m[35m (1.0ms)[0m  [1m[34mselect DATE(created_at) as created, count(id) FROM balloons GROUP BY created;[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+PagesControllerTest: test_should_get_page_about
+-----------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2019-09-17 09:30:57 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 30ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-17 16:34:58.898708', '2019-09-17 16:34:58.898708')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-17 16:34:58.898708', '2019-09-17 16:34:58.898708')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:34:58.903691', '2019-09-17 16:34:58.903691', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:34:58.903691', '2019-09-17 16:34:58.903691', 298486374, 298486374)[0m
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+PagesControllerTest: test_should_get_page_about
+-----------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 198ms (Views: 174.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+CommentsControllerTest: test_should_get_API_commments_json
+----------------------------------------------------------
+Started GET "/api/v1/comments" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY created_at DESC[0m
+Completed 200 OK in 0ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+CountsControllerTest: test_should_get_page_counts
+-------------------------------------------------
+Started GET "/counts" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by CountsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mselect DATE(created_at) as created, count(id) FROM balloons GROUP BY created;[0m
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_new_balloon
+------------------------------------------------------------
+  [1m[36mBalloon Load (1.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/new" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by BalloonsController#new as HTML
+Filter chain halted as #<Proc:0x916f920@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_edit_balloons
+----------------------------------------------------------
+  [1m[36mBalloon Load (1.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_edit" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by BalloonsController#edit as HTML
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_edit_balloons
+--------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/edit" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by BalloonsController#edit as HTML
+Filter chain halted as #<Proc:0x916f920@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_show_balloon
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/show?id=1" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by BalloonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (1.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."balloon_id" = ?[0m  [["balloon_id", 1]]
+  Rendered comments/_comments.html.erb (34.9ms)
+  Rendered comments/_form.html.erb (18.9ms)
+  Rendered balloons/show.html.erb within layouts/application (81.7ms)
+Completed 200 OK in 120ms (Views: 110.6ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_API_balloons_json
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/balloons" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by Api::V1::BalloonsController#index as HTML
+  [1m[36mBalloon Load (1.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons" ORDER BY created_at DESC[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_new_balloon
+--------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_new" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by BalloonsController#new as HTML
+  Rendering balloons/new.html.erb within layouts/application
+  Rendered balloons/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+BalloonsControllerTest: test_should_get_page_home
+-------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-09-17 09:34:59 -0700
+Processing by BalloonsController#index as HTML
+  Rendering balloons/index.html.erb within layouts/application
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons"[0m
+  Rendered balloons/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 2.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-17 16:38:38.771250', '2019-09-17 16:38:38.771250')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-17 16:38:38.771250', '2019-09-17 16:38:38.771250')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:38:38.779229', '2019-09-17 16:38:38.779229', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 16:38:38.779229', '2019-09-17 16:38:38.779229', 298486374, 298486374)[0m
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+CommentsControllerTest: test_should_get_API_commments_json
+----------------------------------------------------------
+Started GET "/api/v1/comments" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY created_at DESC[0m
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_new_balloon
+--------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_new" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by BalloonsController#new as HTML
+  Rendering balloons/new.html.erb within layouts/application
+  Rendered balloons/new.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 212ms (Views: 195.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+BalloonsControllerTest: test_should_get_page_home
+-------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by BalloonsController#index as HTML
+  Rendering balloons/index.html.erb within layouts/application
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons"[0m
+  Rendered balloons/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 18ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_show_balloon
+---------------------------------------------------------
+  [1m[36mBalloon Load (1.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/show?id=1" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by BalloonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."balloon_id" = ?[0m  [["balloon_id", 1]]
+  Rendered comments/_comments.html.erb (27.8ms)
+  Rendered comments/_form.html.erb (0.0ms)
+  Rendered balloons/show.html.erb within layouts/application (58.4ms)
+Completed 200 OK in 78ms (Views: 71.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_edit_balloons
+--------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/edit" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by BalloonsController#edit as HTML
+Filter chain halted as #<Proc:0x434c3b8@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_edit_balloons
+----------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_edit" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by BalloonsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/edit.html.erb within layouts/application
+  Rendered balloons/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 42ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_API_balloons_json
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/balloons" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by Api::V1::BalloonsController#index as HTML
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons" ORDER BY created_at DESC[0m
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_new_balloon
+------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/new" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by BalloonsController#new as HTML
+Filter chain halted as #<Proc:0x434c3b8@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+CountsControllerTest: test_should_get_page_counts
+-------------------------------------------------
+Started GET "/counts" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by CountsController#index as HTML
+  [1m[35m (0.0ms)[0m  [1m[34mselect DATE(created_at) as created, count(id) FROM balloons GROUP BY created;[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+PagesControllerTest: test_should_get_page_about
+-----------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2019-09-17 09:38:39 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 31ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (3.7ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-17 17:13:40.629398', '2019-09-17 17:13:40.629398')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-17 17:13:40.629398', '2019-09-17 17:13:40.629398')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 17:13:40.636557', '2019-09-17 17:13:40.636557', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-17 17:13:40.636557', '2019-09-17 17:13:40.636557', 298486374, 298486374)[0m
+  [1m[35m (15.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+PagesControllerTest: test_should_get_page_about
+-----------------------------------------------
+Started GET "/about" for 127.0.0.1 at 2019-09-17 10:13:40 -0700
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 187ms (Views: 171.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+CommentsControllerTest: test_should_get_API_commments_json
+----------------------------------------------------------
+Started GET "/api/v1/comments" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY created_at DESC[0m
+Completed 200 OK in 18ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_new_balloon
+------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/new" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by BalloonsController#new as HTML
+Filter chain halted as #<Proc:0x90ed870@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_edit_balloons
+----------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_edit" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by BalloonsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/edit.html.erb within layouts/application
+  Rendered balloons/edit.html.erb within layouts/application (33.1ms)
+Completed 200 OK in 67ms (Views: 54.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_new_balloon
+--------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started POST "/balloon_new" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by BalloonsController#new as HTML
+  Rendering balloons/new.html.erb within layouts/application
+  Rendered balloons/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+BalloonsControllerTest: test_should_get_page_home
+-------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by BalloonsController#index as HTML
+  Rendering balloons/index.html.erb within layouts/application
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons"[0m
+  Rendered balloons/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 29ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_page_show_balloon
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/show?id=1" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by BalloonsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering balloons/show.html.erb within layouts/application
+  [1m[36mComment Load (0.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."balloon_id" = ?[0m  [["balloon_id", 1]]
+  Rendered comments/_comments.html.erb (20.0ms)
+  Rendered comments/_form.html.erb (15.6ms)
+  Rendered balloons/show.html.erb within layouts/application (53.0ms)
+Completed 200 OK in 68ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+BalloonsControllerTest: test_should_not_get_page_edit_balloons
+--------------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/edit" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by BalloonsController#edit as HTML
+Filter chain halted as #<Proc:0x90ed870@C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+BalloonsControllerTest: test_should_get_API_balloons_json
+---------------------------------------------------------
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT  "balloons".* FROM "balloons" WHERE "balloons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/api/v1/balloons" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by Api::V1::BalloonsController#index as HTML
+  [1m[36mBalloon Load (0.0ms)[0m  [1m[34mSELECT "balloons".* FROM "balloons" ORDER BY created_at DESC[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+CountsControllerTest: test_should_get_page_counts
+-------------------------------------------------
+Started GET "/counts" for 127.0.0.1 at 2019-09-17 10:13:41 -0700
+Processing by CountsController#index as HTML
+  [1m[35m (1.0ms)[0m  [1m[34mselect DATE(created_at) as created, count(id) FROM balloons GROUP BY created;[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
