@@ -46,9 +46,17 @@ class BalloonsControllerTest < ActionDispatch::IntegrationTest
     assert_response(401)
   end
 
-  # TEST - access edit page with authorization
+  # TEST - access edit page with authorization and params
   test "should get page edit balloons" do
-    post edit_balloon_url, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
+    # post edit_balloon_url, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
+    # TRY = using :update VS route_url
+    # post :update, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
+    # TRY = adding route 
+    # post balloon_edit_url, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
+    # ERROR - new - couldnt find balloon with id=
+    # TRY = pass id param // ?= passing an invalid id, ex 3 test is still passing
+    @paramsPass = { id:1}
+    post balloon_edit_url, params: @paramsPass, headers: { Authorization: ActionController::HttpAuthentication::Basic.encode_credentials('don', 'don') }
     assert_response :success
   end
 
