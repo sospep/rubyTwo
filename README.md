@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/sospep/rubyTwo">
-    <img src="https://github.com/sospep/rubyOne/blob/master/static/img/seatmap1.svg" alt="Master">
+    <img src="https://github.com/sospep/rubyTwo/blob/master/static/img/seatmap1.svg" alt="Master">
   </a>
 </p>
 
