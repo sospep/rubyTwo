@@ -1,0 +1,9 @@
+<div class="container" style="padding-top: 60px;">
+    <h1><%= @title %></h1>
+    <p><%= @content %></p> 
+    <div class="well">
+        <% @seatmaps.each do | seatmap | %>
+            <%= link_to seatmap.title, seatmap_path(seatmap) %><br>
+        <% end %>
+    </div>
+</div>

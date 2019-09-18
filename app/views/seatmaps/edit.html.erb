@@ -1,0 +1,32 @@
+<div role="main" class="container" style="padding-top: 60px;" >
+    <h1><%= @title%></h1
+    <p><%= @content%></p>
+
+    <%= form_for :seatmap, url: seatmap_path(@seatmap), method: :patch do |f| %>
+        <!-- #check for errors --> 
+        <% if @seatmap.errors.any? %>
+            <% @seatmap.errors.full_messages.each do |msg| %>
+            <div class="alert alert danger"><%= msg %> </div>
+            <% end %> 
+        <% end %> 
+        <p>
+        <%= f.label :title %><br>
+        <%= f.text_field(:title,{:class => 'form-control'}) %>
+        </p>
+        <p>
+        <%= f.label :description %><br>
+        <%= f.text_area(:description,{:class => 'form-control'}) %>
+        </p>
+        <p>
+        <%= f.label :rows %><br>
+        <%= f.text_field(:rows,{:class => 'form-control'}) %>
+        </p>
+        <p>
+        <%= f.label :seats %><br>
+        <%= f.text_field(:seats,{:class => 'form-control'}) %>
+        </p>
+        <p>
+        <%= f.submit(:class => 'btn btn-primary') %>
+        </p>
+    <% end %>
+</div>
