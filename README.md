@@ -3,22 +3,19 @@
 --> 
 
 <p align="center">
-  <a href="https://github.com/sospep/rubyOne">
-  <!--
-    <img src="https://github.com/trimstray/the-book-of-secret-knowledge/blob/master/static/img/the-book-of-secret-knowledge-preview.png" alt="Master">
-    --> 
-    <img src="https://github.com/sospep/rubyOne/blob/master/static/img/balloons.jpg" alt="Master">
+  <a href="https://github.com/sospep/rubyTwo">
+    <img src="https://github.com/sospep/rubyOne/blob/master/static/img/seatmap1.svg" alt="Master">
   </a>
 </p>
 
-<p align="center">"<i>Balloons are addictive, be careful how you use them!</i>"</p>
+<p align="center">"<i>Seat Maps</i>"</p>
 
-<h4 align="center"> RubyOne - Is a basic web application with CRUD functionaly built using the Ruby language with the Rails framework. Use it as a template to jump start your web application development project. </h4>
+<h4 align="center"> RubyTwo - Is a web application designed to create customized seat map image files. </h4>
 
 <br>
 
 <p align="center">
-  <a href="https://github.com/sospep/rubyOne/pulls">
+  <a href="https://github.com/sospep/rubyTwo/pulls">
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?longCache=true" alt="Pull Requests">
   </a>
   <a href="http://www.gnu.org/licenses/">
@@ -29,7 +26,7 @@
 <div align="center">
   <sub>Created by
   <a href="https://twitter.com/sospepTime">sospep</a> and
-  <a href="https://github.com/sospep/rubyOne/graphs/contributors">contributors</a>
+  <a href="https://github.com/sospep/rubyTwo/graphs/contributors">contributors</a>
 </div>
 
 <br>
@@ -63,7 +60,7 @@ Database initialization
 
 How to run the test suite
 -------------------------
-* [] add instructions 
+* [] run rails test
 
 Services (job queues, cache servers, search engines, etc.)
 ----------------------------------------------------------

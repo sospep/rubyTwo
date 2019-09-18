@@ -1,15 +1,20 @@
-
-
-
 <main role="main" class="container">
   <div class="jumbotron">
     <h1><%= @title %> </h1>
-    <p class="lead">This application is a simple CRUD application used to record Balloons. Users can Create, View, Update and Delete Balloon records</p>
+    <p class="lead">This application is used to create Seat Maps. Users can Create, View, Update and Delete Seat Map records</p>
     
-    <p class="lead">Additionally users have the ability to record Comments for each Balloon, such as reporting a Balloon Sighting or ...</p>
+    <p>Once a Seat Map record has been created, that record can be used to generate a Seat Map Image file like the one shown below ...</p>
     
-    <p class="lead">The application also has the capability to report on how many Balloons were created on each day in the past year</p>
+    <%= image_tag("method-draw-image.svg", {:style => "width:800px;height:600px;" }) %>
+    
+    <br>
+    <!--
+    <p>Additionally users have the ability to record Comments for each Balloon, such as reporting a Balloon Sighting or ...</p>
+    <p>The application also has the capability to report on how many Balloons were created on each day in the past year</p>
 
-    <a class="btn btn-lg btn-primary" href="#" role="button">Learn More</a>
+    <a class="btn btn-lg btn-primary" <%=link_to "about2", about2_path, :role =>'button' %> Learn More</a>
+    -->
+    <br><br>
+    <%= link_to "Next Step", about2_path,  :class => 'btn btn-lg btn-primary'%>
   </div>
 </main>
