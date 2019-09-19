@@ -1,15 +1,13 @@
 <div class="container" style="padding-top: 60px;">
-    <h1><%= @title%></h1> 
+    <h1><%=@title%></h1> 
     <p><%= @content%></p>
     <h2><%= @seatmap.title%></h2>
-    <p><%= @seatmap.description%></p>
-    <p><%= @seatmap.rows%></p>
-    <p><%= @seatmap.seats%></p>
-    
+    <p><label for='description'>Description:  </label><%= @seatmap.description%></p>
+    <p><label for='rows'>Rows: </label><%= @seatmap.rows%></p>
+    <p><label for='seats'>Seats: </label><%= @seatmap.seats%></p>
     <hr>
-    
     <%= link_to "Edit", edit_seatmap_path(@seatmap), :class => 'btn btn-primary' %>
     <%= link_to 'Delete', seatmap_path(@seatmap), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
-  
+    <%= link_to "Preview SVG", counts_path(:id=> @seatmap.id),  :class => 'btn btn-primary' %>
 </div>
 
