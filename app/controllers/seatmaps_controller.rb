@@ -53,4 +53,9 @@ class SeatmapsController < ApplicationController
         redirect_to seatmaps_path
     end 
 
+    def generate
+        @seatmap = Seatmap.find(params[:id])
+        # render json: {status: 'SUCCESS', message:'clicked generateSVG on show', data:@seatmap},status: :ok
+    end 
+
 end

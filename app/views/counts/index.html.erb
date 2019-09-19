@@ -1,0 +1,13 @@
+<div class="container" style="padding-top: 60px;">
+    <h1><%= @title %></h1>
+    <div class="container" style="padding-top: 60px;">
+        <p>This is a preview of the SVG image file for the <strong><%=@seatmap.title%></strong> record</p>  
+        <%= raw @mySVG %>
+        <br>
+        <hr>
+        <%= link_to "Home", home_path, :class => 'btn btn-primary' %>
+        <%= link_to "Edit Seat Map", edit_seatmap_path(@seatmap), :class => 'btn btn-primary' %>
+        <%= link_to "Save SVG File", export_svg_path(@seatmap), :class => 'btn btn-primary' %>
+        
+    </div>
+</div>
