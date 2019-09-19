@@ -3546,3 +3546,271 @@ Processing by CountsController#index as HTML
   [1m[35m (1.0ms)[0m  [1m[34mselect DATE(created_at) as created, count(id) FROM balloons GROUP BY created;[0m
 Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 1.0ms)
   [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateSeatMaps (20190917185535)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "seat_maps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "rows" varchar, "seats" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190917185535"]]
+  [1m[35m (20.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RenameSeatmaps (20190917205223)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "seat_maps" RENAME TO "seatmaps"[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190917205223"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_balloon_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_balloon_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:01.578188', '2019-09-18 17:10:01.578188')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:01.578188', '2019-09-18 17:10:01.578188')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:01.578188', '2019-09-18 17:10:01.578188', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:01.578188', '2019-09-18 17:10:01.578188', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (15.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (15.6ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.304804', '2019-09-18 17:10:02.304804')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.304804', '2019-09-18 17:10:02.304804')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.320424', '2019-09-18 17:10:02.320424', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.320424', '2019-09-18 17:10:02.320424', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.336045', '2019-09-18 17:10:02.336045')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.336045', '2019-09-18 17:10:02.336045')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.338241', '2019-09-18 17:10:02.338241', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.338241', '2019-09-18 17:10:02.338241', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (10.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.360634', '2019-09-18 17:10:02.360634')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.360634', '2019-09-18 17:10:02.360634')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.363626', '2019-09-18 17:10:02.363626', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.363626', '2019-09-18 17:10:02.363626', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (7.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.383610', '2019-09-18 17:10:02.383610')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.383610', '2019-09-18 17:10:02.383610')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.386564', '2019-09-18 17:10:02.386564', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.386564', '2019-09-18 17:10:02.386564', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (5.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.406549', '2019-09-18 17:10:02.406549')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.406549', '2019-09-18 17:10:02.406549')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.409504', '2019-09-18 17:10:02.409504', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.409504', '2019-09-18 17:10:02.409504', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.428205', '2019-09-18 17:10:02.428205')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.428205', '2019-09-18 17:10:02.428205')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.432566', '2019-09-18 17:10:02.432566', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.432566', '2019-09-18 17:10:02.432566', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.449612', '2019-09-18 17:10:02.449612')[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.449612', '2019-09-18 17:10:02.449612')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.452606', '2019-09-18 17:10:02.452606', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.452606', '2019-09-18 17:10:02.452606', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (6.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.471556', '2019-09-18 17:10:02.471556')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.471556', '2019-09-18 17:10:02.471556')[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.473550', '2019-09-18 17:10:02.473550', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.473550', '2019-09-18 17:10:02.473550', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (7.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:10:02.497485', '2019-09-18 17:10:02.497485')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:10:02.497485', '2019-09-18 17:10:02.497485')[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.500479', '2019-09-18 17:10:02.500479', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:10:02.500479', '2019-09-18 17:10:02.500479', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (4.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:29.728548', '2019-09-18 17:23:29.728548')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:29.728548', '2019-09-18 17:23:29.728548')[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:29.735492', '2019-09-18 17:23:29.735492', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:29.735492', '2019-09-18 17:23:29.735492', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:29.985263', '2019-09-18 17:23:29.985263')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:29.985263', '2019-09-18 17:23:29.985263')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:29.985263', '2019-09-18 17:23:29.985263', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:29.985263', '2019-09-18 17:23:29.985263', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (15.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.012287', '2019-09-18 17:23:30.012287')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.012287', '2019-09-18 17:23:30.012287')[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.015239', '2019-09-18 17:23:30.015239', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.015239', '2019-09-18 17:23:30.015239', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.033823', '2019-09-18 17:23:30.033823')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.033823', '2019-09-18 17:23:30.033823')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.035818', '2019-09-18 17:23:30.035818', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.035818', '2019-09-18 17:23:30.035818', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.061716', '2019-09-18 17:23:30.061716')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.061716', '2019-09-18 17:23:30.061716')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.064707', '2019-09-18 17:23:30.064707', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.064707', '2019-09-18 17:23:30.064707', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (5.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.084653', '2019-09-18 17:23:30.084653')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.084653', '2019-09-18 17:23:30.084653')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.086648', '2019-09-18 17:23:30.086648', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.086648', '2019-09-18 17:23:30.086648', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.112580', '2019-09-18 17:23:30.112580')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.112580', '2019-09-18 17:23:30.112580')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.116568', '2019-09-18 17:23:30.116568', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.116568', '2019-09-18 17:23:30.116568', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (4.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.137512', '2019-09-18 17:23:30.137512')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.137512', '2019-09-18 17:23:30.137512')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.140505', '2019-09-18 17:23:30.140505', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.140505', '2019-09-18 17:23:30.140505', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (7.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.162187', '2019-09-18 17:23:30.162187')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.162187', '2019-09-18 17:23:30.162187')[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.167175', '2019-09-18 17:23:30.167175', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.167175', '2019-09-18 17:23:30.167175', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (7.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "balloons"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (1, 'balloon 1', 'MyText for balloon 1', '2019-09-18 17:23:30.189152', '2019-09-18 17:23:30.189152')[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "balloons" ("id", "title", "body", "created_at", "updated_at") VALUES (2, 'balloon 2', 'MyText for balloon 2', '2019-09-18 17:23:30.189152', '2019-09-18 17:23:30.189152')[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "comments"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.191112', '2019-09-18 17:23:30.191112', 980190962, 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "comments" ("username", "body", "created_at", "updated_at", "id", "balloon_id") VALUES ('MyString', 'MyText', '2019-09-18 17:23:30.191112', '2019-09-18 17:23:30.191112', 298486374, 298486374)[0m
+  [1m[36mFixture Delete (0.0ms)[0m  [1m[31mDELETE FROM "seat_maps"[0m
+  [1m[35m (7.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
