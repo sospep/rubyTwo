@@ -1,0 +1,14 @@
+I"*(function() {
+  $(document).on("turbolinks:load", function() {
+    return $(function() {
+      $("p").click(function(e) {
+        return alert("you clicked p");
+      });
+      return $("p").mouseover(function(e) {
+        return alert("you moused over p");
+      });
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,14 @@
+I"(function() {
+  this.paintIt2 = function(element) {
+    return element.style.backgroundColor = "red";
+  };
+
+  $(function() {
+    $("a[data-background]").click(function(e) {
+      return alert("you clicked");
+    });
+    return e.preventDefault();
+  });
+
+}).call(this);
+:ET

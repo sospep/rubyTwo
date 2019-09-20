@@ -1,0 +1,12 @@
+I"	(function() {
+  $(document).on("turbolinks:load", function() {
+    this.paintIt2 = function(element) {};
+    return $(function() {
+      return $("a[data-background]").click(function(e) {
+        return alert("you clicked");
+      });
+    });
+  });
+
+}).call(this);
+:ET

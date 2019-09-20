@@ -1,0 +1,11 @@
+I"À(function() {
+  this.paintIt2 = function(element) {};
+
+  $(function() {
+    return $("a[data-background]").click(function(e) {
+      return alert("you clicked");
+    });
+  });
+
+}).call(this);
+:ET

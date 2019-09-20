@@ -1,0 +1,15 @@
+I"(function() {
+  $(document).on("turbolinks:load", function() {
+    return alert("page has loaded!");
+  });
+
+  this.paintIt2 = function(element) {};
+
+  $(function() {
+    return $("a[data-background]").click(function(e) {
+      return alert("you clicked");
+    });
+  });
+
+}).call(this);
+:ET
