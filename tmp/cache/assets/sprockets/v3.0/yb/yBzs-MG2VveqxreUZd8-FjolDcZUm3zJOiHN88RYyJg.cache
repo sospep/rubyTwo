@@ -1,0 +1,13 @@
+I"8(function() {
+  $(document).on("turbolinks:load", function() {
+    this.paintIt3 = function(element) {};
+    return $(function() {
+      return $(".seat").click(function(e) {
+        console.log(e);
+        return alert("Seat: " + e.target.id + "\r\n Status: Available");
+      });
+    });
+  });
+
+}).call(this);
+:ET

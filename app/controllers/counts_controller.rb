@@ -39,7 +39,7 @@ class CountsController < ApplicationController
                     # mySVGcontentSeats += "<rect id='svg_'"+i.to_s+"height='9' width='17' y='123.949997' x='321.5' stroke-width='1.5' stroke='#000' fill='#fff'/>"
                     x_increment_total = x_base + (j * x_increment)
                     # mySVGcontentSeats += "<rect id='svg_#{j}' height='9' width='17' y='123.949997' x='#{x_increment_total}' stroke-width='1.5' stroke='#000' fill='#fff'/>"
-                    mySVGcontentSeats += "<rect id='svg_#{j}' height='9' width='17' y='#{y_increment_total}' x='#{x_increment_total}' stroke-width='1.5' stroke='#000' fill='#fff'/>"
+                    mySVGcontentSeats += "<rect id='svg_#{j}' class ='seat' height='9' width='17' y='#{y_increment_total}' x='#{x_increment_total}' stroke-width='1.5' stroke='#000' fill='#fff'/>"
                 end
             end
 
