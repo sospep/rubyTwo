@@ -1,0 +1,13 @@
+I"P(function() {
+  $(document).on("turbolinks:load", function() {
+    this.paintIt3 = function(element) {};
+    return $(function() {
+      return $(".seat").click(function(e) {
+        e.preventDefault();
+        return alert(" Seat: " + e.target.id + "\r\n Status: Available \r\n Price: $86.50");
+      });
+    });
+  });
+
+}).call(this);
+:ET
